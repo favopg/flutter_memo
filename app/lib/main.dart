@@ -14,8 +14,37 @@ class AppMemo extends StatelessWidget {
         appBar: AppBar(
           title: const Text("予定確認メモアプリ"),
         ),
-        body: const Center(
-          child: Text("ソースを綺麗にしたよ！"),
+        body: Center(
+          child: Column(
+            //mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              ElevatedButton(
+                  onPressed: null,
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                    foregroundColor: MaterialStateProperty.all(Colors.white)
+                  ),
+                child: const Text("予定確認"),
+              ),
+              ElevatedButton(
+                onPressed: null,
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                    foregroundColor: MaterialStateProperty.all(Colors.white)
+                ),
+                child: const Text("予定登録"),
+              ),
+              ElevatedButton(
+                onPressed: null,
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                    foregroundColor: MaterialStateProperty.all(Colors.white)
+                ),
+                child: const Text("使い方"),
+              ),
+            ],
+          ),
         ),
       ),
     );
