@@ -10,46 +10,57 @@ class AppMemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("予定確認メモアプリ"),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => confirmList()),
-                    );
-                  },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                    foregroundColor: MaterialStateProperty.all(Colors.white)
-                  ),
-                child: const Text("予定確認"),
+    return const MaterialApp(
+      home: AppMemoLayout()
+    );
+  }
+}
+
+// 画面遷移用に分離する必要がある
+class AppMemoLayout extends StatelessWidget {
+  const AppMemoLayout({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text("予定確認メモアプリ"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ConfirmList()),
+                );
+              },
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.blue),
+                  foregroundColor: MaterialStateProperty.all(Colors.white)
               ),
-              ElevatedButton(
-                onPressed: null,
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                    foregroundColor: MaterialStateProperty.all(Colors.white)
-                ),
-                child: const Text("予定登録"),
+              child: const Text("予定確認"),
+            ),
+            ElevatedButton(
+              onPressed: null,
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.blue),
+                  foregroundColor: MaterialStateProperty.all(Colors.white)
               ),
-              ElevatedButton(
-                onPressed: null,
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                    foregroundColor: MaterialStateProperty.all(Colors.white)
-                ),
-                child: const Text("使い方"),
+              child: const Text("予定登録"),
+            ),
+            ElevatedButton(
+              onPressed: null,
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.blue),
+                  foregroundColor: MaterialStateProperty.all(Colors.white)
               ),
-            ],
-          ),
+              child: const Text("使い方"),
+            ),
+          ],
         ),
       ),
     );
