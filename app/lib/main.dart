@@ -1,3 +1,4 @@
+import 'package:app/confirm_list.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,11 +17,15 @@ class AppMemo extends StatelessWidget {
         ),
         body: Center(
           child: Column(
-            //mainAxisAlignment: MainAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               ElevatedButton(
-                  onPressed: null,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => confirmList()),
+                    );
+                  },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.blue),
                     foregroundColor: MaterialStateProperty.all(Colors.white)
