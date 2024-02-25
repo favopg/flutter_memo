@@ -14,11 +14,10 @@ class ConfirmList extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Row(
-              children: const [
-                Text("予定"),
-                Text("予定２")
-              ],
+            const TextField(
+              decoration: InputDecoration(
+                hintText: "フリーワード検索です"
+              ),
             ),
             Expanded(
               //width: double.infinity,
@@ -102,6 +101,11 @@ class ConfirmList extends StatelessWidget {
             ),
           ],
         ),
+      floatingActionButton: const FloatingActionButton(
+        onPressed: null,
+        tooltip: '指定月の予定一覧検索',
+        child: Icon(Icons.search),
+      ),
     );
   }
 }
